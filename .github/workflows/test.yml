@@ -1,0 +1,58 @@
+---
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 4
+      matrix:
+        python-version: ["3.11"]
+    steps:
+      # Checkout the latest code from the repo
+      - name: Checkout repo
+        uses: actions/checkout@v2
+        # Setup which version of Python to use
+      - name: Set Up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+        id: setup_python
+        # Display the Python version being used
+      - name: Display Python version
+        run: python -c "import sys; print(sys.version)"
+
+      - name: Install and configure Poetry
+        uses: snok/install-poetry@v1
+        with:
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+
+      - name: Set up cache
+        uses: actions/cache@v2
+        id: cached-poetry-dependencies
+        with:
+          path: .venv
+          key: venv-${{ runner.os }}-${{ steps.setup_python.outputs.python-version }}-${{ hashFiles('**/poetry.lock') }}
+        # Install packages in pyproject.toml file
+      - name: Install dependencies
+        run: poetry install --no-interaction --no-root
+        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
+
+      - run: poetry install --no-interaction
+      - name: set pythonpath
+        run: |
+          export PYTHONPATH=$PWD
+          echo "PYTHONPATH=$PWD" >> $GITHUB_ENV
+
+      - name: Runnning app tests
+        run: |
+          source .venv/bin/activate
+          poetry run pytest
