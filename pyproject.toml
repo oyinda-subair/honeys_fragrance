@@ -10,7 +10,7 @@ packages = [{include = "honeys_fragrance", from = "src"}]
 python = "^3.11"
 fastapi = "^0.101.1"
 uvicorn = {extras = ["standard"], version = "^0.23.2"}
-pydantic = "^2.1.1"
+pydantic = {extras = ["email"], version = "^2.1.1"}
 alembic = "^1.11.2"
 psycopg2 = "^2.9.7"
 loguru = "^0.7.0"
@@ -19,12 +19,16 @@ sqlalchemy-utils = "^0.41.1"
 bcrypt = "^4.0.1"
 python-jose = "^3.3.0"
 httpx = "^0.24.1"
+pydantic-settings = "^2.0.3"
 
 
 [tool.poetry.group.dev.dependencies]
 pylint = "^2.17.5"
 pytest = "^7.4.0"
 autopep8 = "^2.0.2"
+
+[tool.autopep8]
+max_line_length = 120
 
 [build-system]
 requires = ["poetry-core"]

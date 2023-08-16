@@ -1,5 +1,22 @@
+import os
+import pathlib
+
 from fastapi import FastAPI
 from loguru import logger
+
+from dotenv import load_dotenv
+from os.path import join
+
+from src.honeys_fragrance.core.settings import settings
+from src.honeys_fragrance.core.init_logger import setup_app_logging
+
+# Project Directories
+ROOT = pathlib.Path(__file__).resolve().parent.parent
+
+dotenv_path = join(ROOT, '.env')
+load_dotenv(dotenv_path)
+
+setup_app_logging(config=settings)
 
 app = FastAPI()
 
