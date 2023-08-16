@@ -8,6 +8,11 @@ on:
     branches: [main]
   workflow_dispatch:
 
+env:
+  HOSTNAME: 0.0.0.0
+  PORT: 5000
+  PYTHON_ENV: test
+
 jobs:
   tests:
     runs-on: ubuntu-latest
