@@ -19,7 +19,6 @@ ENVIRONMENT = os.environ.get("PYTHON_ENV")
 
 
 def get_db_for_by_env():
-    print("Enviroment ===", ENVIRONMENT)
     if RUNTIME_ENV[ENVIRONMENT] == "Test":
         return os.environ.get("TEST_DB_URL")
     else:
