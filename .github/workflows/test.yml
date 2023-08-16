@@ -12,6 +12,8 @@ env:
   HOSTNAME: 0.0.0.0
   PORT: 5000
   PYTHON_ENV: test
+  DATABASE_URL: ${{ secrets.DATABASE_URL }}
+  TEST_DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
 jobs:
   tests:
