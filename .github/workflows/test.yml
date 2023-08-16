@@ -18,7 +18,7 @@ env:
   DB_NAME: str
   DB_USER: str
   DB_HOSTNAME: str
-  FIRST_SUPERUSER: str
+  FIRST_SUPERUSER: email@email.com
   FIRST_SUPERUSER_PW: str
 
 jobs:
