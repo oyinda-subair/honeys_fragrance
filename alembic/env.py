@@ -8,6 +8,7 @@ from alembic import context
 from src.honeys_fragrance.core.settings import settings
 from src.honeys_fragrance.db.base import Base
 from src.honeys_fragrance.models.user import User
+from src.honeys_fragrance.models.user_address import UserAddress
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -35,7 +36,6 @@ def get_url():
     if connection_uri.startswith("postgres://"):
         connection_uri = connection_uri.replace(
             "postgres://", "postgresql://", 1)
-    print("almebic connect url ====", connection_uri)
     return connection_uri
 
 

@@ -429,6 +429,18 @@ http2 = ["h2 (>=3,<5)"]
 socks = ["socksio (>=1.0.0,<2.0.0)"]
 
 [[package]]
+name = "humps"
+version = "0.2.2"
+description = "camelCase converter"
+category = "main"
+optional = false
+python-versions = "*"
+files = [
+    {file = "humps-0.2.2-py2.py3-none-any.whl", hash = "sha256:401de60fd73673b697086ba7c865966751c57b11cce57a37c9eabb3e75938417"},
+    {file = "humps-0.2.2.tar.gz", hash = "sha256:777f7a17f6b20aa9cc078d63b56ebd66532c6b2c88b370f1d596d5205410f67c"},
+]
+
+[[package]]
 name = "idna"
 version = "3.4"
 description = "Internationalized Domain Names in Applications (IDNA)"
@@ -1478,4 +1490,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "fae7aa0d3f65f80b0d6456fa2ac4b4bc76847737422433f9006071587ec944ba"
+content-hash = "b1d00b6a35697531f1c98c0761ac75b3b7c2da25400165c0749e4adb7ecb590c"

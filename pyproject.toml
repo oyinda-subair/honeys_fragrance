@@ -20,6 +20,7 @@ bcrypt = "^4.0.1"
 python-jose = "^3.3.0"
 httpx = "^0.24.1"
 pydantic-settings = "^2.0.3"
+humps = "^0.2.2"
 
 
 [tool.poetry.group.dev.dependencies]

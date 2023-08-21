@@ -1,5 +1,6 @@
 from sqlalchemy import String, Column, TIMESTAMP, func, Integer
 from sqlalchemy.dialects.postgresql import UUID
+from sqlalchemy.orm import relationship
 
 import uuid
 
@@ -16,3 +17,5 @@ class User(Base):
     hashed_password = Column(String, nullable=False)
     created_at = Column(TIMESTAMP, nullable=False, default=func.now())
     updated_at = Column(TIMESTAMP, nullable=True, default=func.now())
+
+    user_addresses = relationship("UserAddress", back_populates="user")
