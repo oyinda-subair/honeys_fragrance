@@ -3,7 +3,7 @@ import uuid
 from pydantic import BaseModel, EmailStr
 from humps import camelize
 
-from src.honeys_fragrance.schemas.utils import UserRole
+from src.honeys_fragrance.core.utils import UserRole
 
 
 def to_camel(string):
@@ -20,7 +20,7 @@ class UserBase(CamelModel):
     first_name: Optional[str]
     last_name: Optional[str]
     email_address: Optional[EmailStr] = None
-    telephone_numbe: Optional[int] = None
+    telephone_number: Optional[int] = None
     role: Optional[UserRole] = UserRole.USER
 
 
